@@ -1,17 +1,18 @@
 # SUREL #
 
 **SU**bgraph-based Graph **RE**presentation **L**earning framework is a novel walk-based computation framework for efficient large-scale graph representation learning via subgraphs (SGRL).
-Details on how SUREL works can be found in our paper, where experiment settings and configurations can be found in the supplementary materials.
+Details on how SUREL works can be found in our paper [Algorithm and System Co-design for Efficient Subgraph-based Graph Representation Learning](https://arxiv.org/pdf/2202.13538.pdf), where experiment settings and configurations can be found in the supplementary materials.
 
 Currently, we support:
 - Large-scale graph learning tasks: link prediction / relation prediction / higher-order pattern prediction
 - Preprocessing and training of datasets in OGB format
 - Python API for user defined sampling and joining procedures
 - Single GPU training and evaluation
+- Relative Position Encoding + Node Features
 
 We are working on expanding the functionality of SUREL to include:
-- Add customized node features
 - Multi-GPU training
+- BrainVessel Dataset
 
 ## Requirements ##
 (Other versions may work, but are untested)
@@ -170,4 +171,15 @@ optional arguments:
   --load_dict           whether to load RPE from files
   --load_model          whether to load saved model from files
   --memo MEMO           notes
+```
+
+## Citation
+Please cite our paper if you are interested in our work.
+```
+@article{yin2022algorithm,
+  title={Algorithm and System Co-design for Efficient Subgraph-based Graph Representation Learning},
+  author={Yin, Haoteng and Zhang, Muhan and Wang, Yanbang and Wang, Jianguo and Li, Pan},
+  journal={arXiv preprint arXiv:2202.13538},
+  year={2022}
+}
 ```

@@ -60,7 +60,7 @@ if __name__ == '__main__':
     parser.add_argument('--dropout', type=float, default=0.1, help='dropout rate')
     parser.add_argument('--l2', type=float, default=0., help='l2 regularization (weight decay)')
     parser.add_argument('--patience', type=int, default=5, help='early stopping steps')
-    parser.add_argument('--repeat', type=int, default=5, help='number of training instances to repeat')
+    parser.add_argument('--repeat', type=int, default=1, help='number of training instances to repeat')
 
     # logging & debug
     parser.add_argument('--log_dir', type=str, default='./log/', help='log directory')
@@ -81,6 +81,8 @@ if __name__ == '__main__':
     except:
         parser.print_help()
         sys.exit(0)
+        
+    set_random_seed(args)
 
     # customized for each dataset
     if 'ddi' in args.dataset:
@@ -123,7 +125,9 @@ if __name__ == '__main__':
     model = Net(num_layers=args.layers, input_dim=args.num_step, hidden_dim=args.hidden_dim, out_dim=1,
                 num_walk=args.num_walk, x_dim=args.x_dim, dropout=args.dropout, use_feature=args.use_feature,
                 use_weight=args.use_weight, use_degree=args.use_degree, use_htype=args.use_htype)
-    model.to(device)
+    model.to(device) 
+    
+    logger.info(f'#Model Params {sum(p.numel() for p in model.parameters())}')
 
     if args.optim == 'adam':
         optimizer = torch.optim.Adam(params=model.parameters(), lr=args.lr)
