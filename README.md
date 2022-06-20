@@ -1,7 +1,8 @@
 <h1 align="center">SUREL: <ins>Su</ins>bgraph-based Graph <ins>Re</ins>presentation <ins>L</ins>earning</h1>
 <p align="center">
-    <a href="https://arxiv.org/pdf/2202.13538"><img src="https://img.shields.io/badge/-Paper-grey?logo=read%20the%20docs&logoColor=green" alt="Paper"></a>
+    <a href="https://arxiv.org/abs/2202.13538"><img src="https://img.shields.io/badge/-Paper-grey?logo=read%20the%20docs&logoColor=green" alt="Paper"></a>
     <a href="https://ogb.stanford.edu/docs/leader_linkprop/"><img src="https://img.shields.io/badge/OGB-LinkPred-blue" alt="OGBL"></a>
+    <a href="https://github.com/Graph-COM/SUREL/tree/main/surel_gacc"><img src="https://img.shields.io/badge/GACC-v1.0-orange" alt="Version"></a>
     <a href="https://github.com/Graph-COM/SUREL"><img src="https://img.shields.io/badge/-Github-grey?logo=github" alt="Github"></a>
 </p>
 
