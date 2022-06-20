@@ -1,4 +1,4 @@
-<h1 align="center">SUREL: <ins>Su</ins>bgraph-based Graph <ins>Re</ins>presentation <ins>L</ins>earning</h1>
+<h1 align="center"><ins>Su</ins>bgraph-based Graph <ins>Re</ins>presentation <ins>L</ins>earning Framework</h1>
 <p align="center">
     <a href="https://arxiv.org/abs/2202.13538"><img src="https://img.shields.io/badge/-Paper-grey?logo=read%20the%20docs&logoColor=green" alt="Paper"></a>
     <a href="https://ogb.stanford.edu/docs/leader_linkprop/"><img src="https://img.shields.io/badge/OGB-LinkPred-blue" alt="OGBL"></a>
