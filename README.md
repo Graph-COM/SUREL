@@ -1,7 +1,12 @@
-# SUREL #
+<h1 align="center">SUREL: <ins>Su</ins>bgraph-based Graph <ins>Re</ins>presentation <ins>L</ins>earning</h1>
+<p align="center">
+    <a href="https://arxiv.org/pdf/2202.13538"><img src="https://img.shields.io/badge/-Paper-grey?logo=read%20the%20docs&logoColor=green" alt="Paper"></a>
+    <a href="https://ogb.stanford.edu/docs/leader_linkprop/"><img src="https://img.shields.io/badge/OGB-LinkPred-blue" alt="OGBL"></a>
+    <a href="https://github.com/Graph-COM/SUREL"><img src="https://img.shields.io/badge/-Github-grey?logo=github" alt="Github"></a>
+</p>
 
-**SU**bgraph-based Graph **RE**presentation **L**earning framework is a novel walk-based computation framework for efficient large-scale graph representation learning via subgraphs (SGRL).
-Details on how SUREL works can be found in our paper [Algorithm and System Co-design for Efficient Subgraph-based Graph Representation Learning](https://arxiv.org/pdf/2202.13538.pdf), where experiment settings and configurations can be found in the supplementary materials.
+SUREL is a novel walk-based computation framework for efficient large-scale graph representation learning via subgraphs (SGRL).
+Details on how SUREL works can be found in our paper [Algorithm and System Co-design for Efficient Subgraph-based Graph Representation Learning](https://arxiv.org/pdf/2202.13538.pdf), to appear in VLDB 2022.
 
 Currently, we support:
 - Large-scale graph learning tasks: link prediction / relation prediction / higher-order pattern prediction
@@ -179,7 +184,8 @@ Please cite our paper if you are interested in our work.
 @article{yin2022algorithm,
   title={Algorithm and System Co-design for Efficient Subgraph-based Graph Representation Learning},
   author={Yin, Haoteng and Zhang, Muhan and Wang, Yanbang and Wang, Jianguo and Li, Pan},
-  journal={arXiv preprint arXiv:2202.13538},
+  journal={Proceedings of the VLDB Endowment},
+  volume={15},
   year={2022}
 }
 ```
