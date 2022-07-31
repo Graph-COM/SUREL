@@ -2,7 +2,7 @@
 <p align="center">
     <a href="https://arxiv.org/abs/2202.13538"><img src="https://img.shields.io/badge/-Paper-grey?logo=read%20the%20docs&logoColor=green" alt="Paper"></a>
     <a href="https://github.com/Graph-COM/SUREL"><img src="https://img.shields.io/badge/-Github-grey?logo=github" alt="Github"></a>
-    <a href="https://github.com/Graph-COM/SUREL/blob/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-BSD%202--Clause-red.svg"></a>
+    <a href="https://github.com/Graph-COM/SUREL/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-BSD%202--Clause-red.svg"></a>
     <a href="https://ogb.stanford.edu/docs/leader_linkprop/"><img src="https://img.shields.io/badge/OGB-LinkPred-blue" alt="OGBL"></a>
     <a href="https://github.com/Graph-COM/SUREL/tree/main/surel_gacc"><img src="https://img.shields.io/badge/GACC-v1.0-orange" alt="Version"></a>
     <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FGraph-COM%2FSUREL&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Hits&edge_flat=false"/></a>
@@ -89,7 +89,7 @@ python main_horder.py --dataset DBLP-coauthor --metric mrr --num_step 3 --num_wa
 - All detailed training logs can be found at `<log_dir>/<dataset>/<training-time>.log`.
 
 ## Result Reproduction
-This section supplements our SUREL paper accepted in VLDB 2022.To reproduce the results of SUREL reported in Tables 3 and 4, use the following command:
+This section supplements our SUREL paper accepted in VLDB 2022. To reproduce the results of SUREL reported in Tables 3 and 4, use the following command:
 * OGBL - Link Prediction
 ```bash
 python3 main.py --dataset <dataset> --metric <metric> --num_step <num_step> --num_walk <num_walk> --k <k>
