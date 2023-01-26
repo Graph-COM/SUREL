@@ -1,22 +1,21 @@
 <h1 align="center">SUREL: <ins>Su</ins>bgraph-based Graph <ins>Re</ins>presentation <ins>L</ins>earning Framework</h1>
 <p align="center">
-    <a href="https://arxiv.org/abs/2202.13538"><img src="https://img.shields.io/badge/-Paper-grey?logo=read%20the%20docs&logoColor=green" alt="Paper"></a>
+    <a href="https://www.vldb.org/pvldb/vol15/p2788-yin.pdf"><img src="https://img.shields.io/badge/-Paper-grey?logo=read%20the%20docs&logoColor=green" alt="Paper"></a>
     <a href="https://github.com/Graph-COM/SUREL"><img src="https://img.shields.io/badge/-Github-grey?logo=github" alt="Github"></a>
     <a href="https://github.com/Graph-COM/SUREL/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-BSD%202--Clause-red.svg"></a>
     <a href="https://ogb.stanford.edu/docs/leader_linkprop/"><img src="https://img.shields.io/badge/OGB-LinkPred-blue" alt="OGBL"></a>
-    <a href="https://github.com/Graph-COM/SUREL/tree/main/surel_gacc"><img src="https://img.shields.io/badge/GACC-v1.0-orange" alt="Version"></a>
+    <a href="https://github.com/Graph-COM/SUREL/tree/main/subg_acc"><img src="https://img.shields.io/badge/SubGAcc-v1.1-orange" alt="Version"></a>
     <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FGraph-COM%2FSUREL&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Hits&edge_flat=false"/></a>
 </p>
 
-SUREL is a novel walk-based computation framework for efficient large-scale graph representation learning via subgraphs (SGRL).
-Details on how SUREL works can be found in our paper [Algorithm and System Co-design for Efficient Subgraph-based Graph Representation Learning](https://arxiv.org/pdf/2202.13538.pdf), to appear in VLDB 2022.
+SUREL is a novel walk-based computation framework for efficient large-scale subgraph-base graph representation learning (SGRL). Details on how SUREL works can be found in our VLDB'22 paper [Algorithm and System Co-design for Efficient Subgraph-based Graph Representation Learning](https://arxiv.org/pdf/2202.13538.pdf).
 
 Currently, we support:
-- Large-scale graph learning tasks: link prediction / relation prediction / higher-order pattern prediction
+- Large-scale graph ML tasks: link prediction / relation type prediction / higher-order pattern prediction
 - Preprocessing and training of datasets in OGB format
-- Python API for user defined sampling and joining procedures
+- Python API for user defined subgraph sampling and joining procedures
 - Single GPU training and evaluation
-- Relative Position Encoding + Node Features
+- Structural (Relative Position) Encoding + Node Features
 
 We are working on expanding the functionality of SUREL to include:
 - Multi-GPU training
@@ -27,10 +26,7 @@ We are working on expanding the functionality of SUREL to include:
 * Ubuntu 20.04
 * CUDA >= 10.2
 * python >= 3.8
-* 1.8 <= pytorch < 1.10 
-* gcc >= 8.4
-* cmake >= 3.16
-* make >= 4.2
+* 1.8 <= pytorch <= 1.11
 
 ## SGRL Environment Setup ##
 
@@ -64,7 +60,7 @@ For more details, please refer to the [PyTorch](https://pytorch.org/) and [PyTor
 
 2. Clone the repository `git clone https://github.com/VeritasYin/SUREL.git`
 
-3. Build and install SUREL_GAcc `cd surel_gacc;python3 setup.py install`
+3. Build and install SubG_Acc `cd subg_acc;python3 setup.py install`
 
 - To train **SUREL** for link prediction on Collab:
 ```bash
@@ -89,7 +85,7 @@ python main_horder.py --dataset DBLP-coauthor --metric mrr --num_step 3 --num_wa
 - All detailed training logs can be found at `<log_dir>/<dataset>/<training-time>.log`.
 
 ## Result Reproduction
-This section supplements our SUREL paper accepted in VLDB 2022. To reproduce the results of SUREL reported in Tables 3 and 4, use the following command:
+This section supplements our SUREL paper accepted in VLDB'22. To reproduce the results of SUREL reported in Tables 3 and 4, use the following command:
 * OGBL - Link Prediction
 ```bash
 python3 main.py --dataset <dataset> --metric <metric> --num_step <num_step> --num_walk <num_walk> --k <k>
