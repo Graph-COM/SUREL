@@ -26,7 +26,7 @@ We are working on expanding the functionality of SUREL to include:
 * Ubuntu 20.04
 * CUDA >= 10.2
 * python >= 3.8
-* 1.8 <= pytorch <= 1.11
+* 1.8 <= pytorch <= 1.12
 
 ## SGRL Environment Setup ##
 
@@ -42,8 +42,15 @@ conda update -n base -c defaults conda
 conda env create -f environment.yml
 conda activate sgrl-env
 ```
+- Update: **SUREL** now support PyTorch 1.12.1 and PyG 2.2.0. To install them, simply run
+```bash
+conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch
+conda install pyg -c pyg
+```
+For more details, please refer to the [PyTorch](https://pytorch.org/) and [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/latest/install/installation.html).
+The code of this repository is lately tested with Python 3.10.9 + PyTorch 1.12.1 (CUDA 11.3) + torch-geometric 2.2.0.
 
-- Example commends of installation for PyTorch (>= 1.8.0) and torch-geometric (>=1.6.0) with CUDA 10.2:
+- Example commends of installation for PyTorch 1.8.0 (CUDA 10.2) and torch-geometric 1.6.3:
 ```bash
 conda install pytorch==1.8.0 torchvision torchaudio cudatoolkit=10.2
 pip install torch-scatter -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html
@@ -52,15 +59,14 @@ pip install torch-cluster -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102
 pip install torch-spline-conv -f https://pytorch-geometric.com/whl/torch-1.8.0+cu102.html
 pip install torch-geometric==1.6.3
 ```
-For more details, please refer to the [PyTorch](https://pytorch.org/) and [PyTorch Geometric](https://pytorch-geometric.readthedocs.io/en/1.6.3/notes/installation.html). The code of this repository is lately tested with Python 3.8.5 + PyTorch 1.8.0 + torch-geometric 1.6.3.
 
 ## Quick Start
 
 1. Install required version of PyTorch that is compatible with your CUDA driver
 
-2. Clone the repository `git clone https://github.com/VeritasYin/SUREL.git`
+2. Clone the repository `git clone https://github.com/Graph-COM/SUREL`
 
-3. Build and install SubG_Acc `cd subg_acc;python3 setup.py install`
+3. Build and install the [SubGAcc](https://github.com/VeritasYin/subg_acc) library `cd subg_acc;python3 setup.py install`
 
 - To train **SUREL** for link prediction on Collab:
 ```bash
@@ -90,23 +96,23 @@ This section supplements our SUREL paper accepted in VLDB'22. To reproduce the r
 ```bash
 python3 main.py --dataset <dataset> --metric <metric> --num_step <num_step> --num_walk <num_walk> --k <k>
 ```
-where 'dataset' can be either of 'ogbl-citation2', 'ogbl-collab' and 'ogbl-ppa'; 'metric' can be either 'mrr' or 'hit'.
-* Relation Prediction
+where `dataset` can be either of `ogbl-citation2`, `ogbl-collab` and `ogbl-ppa`; `metric` can be either `mrr` or `hit`.
+* Relation Type Prediction
 ```bash
 python main_hetro.py --dataset mag --relation <relation> --metric mrr --num_step <num_step> --num_walk <num_walk> --k <k>
 ```
-where 'relation' can be either 'write' or 'cite'. 
-* Higher-order Prediction
+where `relation` can be either `write` or `cite`. 
+* Higher-order Pattern Prediction
 ```bash
 python main_horder.py --dataset <dataset> --metric mrr --num_step <num_step> --num_walk <num_walk> --k <k>
 ```
-where 'dataset' can be either 'DBLP-coauthor' or 'tags-math'.
+where `dataset` can be either `DBLP-coauthor` or `tags-math`.
 
 The detailed parameter configurations are provided in Table 8, Appendix D of the [arxiv version](https://arxiv.org/abs/2202.13538) of this work. For the profiling of SUREL in Table 4 and Fig. 4 (a-b), please use the parameter setting provided in Appendix D.3. 
 
-To test the scaling performance of Walk Sampler and RPE Joining, functions 'run_walk' and 'sjoin' can be imported and called from the module 'surel_gacc'. Please adjust the parameter values of 'num_walk', 'num_step' and 'nthread' accordingly as Fig. 4 (c-d) shown.
+To test the scaling performance of Walk Sampler and RPE Joining, functions 'run_walk' and 'sjoin' can be imported and called from the module `surel_gacc`. Please adjust the parameter values of `num_walk`, `num_step` and `nthread` accordingly as Fig. 4 (c-d) shown.
 
-To perform hyper-parameter analysis of the number of walks 𝑀, the step of walks 𝑚, and the hidden dimension 𝑑, please adjust the parameter values of 'num_walk', 'num_step' and 'hidden_dim' accordingly as Fig. 5 shown. 
+To perform hyper-parameter analysis of the number of walks 𝑀, the step of walks 𝑚, and the hidden dimension 𝑑, please adjust the parameter values of `num_walk`, `num_step` and `hidden_dim` accordingly as Fig. 5 shown. 
 
 <details>
   <summary>Sample Output</summary>

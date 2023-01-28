@@ -132,7 +132,7 @@ if __name__ == '__main__':
 
             # obtain set of walks, node id and DE (counts) from the dictionary
             W, S, F = zip(*itemgetter(*B_pos)(rw_dict))
-            data = gen_tuple(W, B_pos, S, batch, args)
+            data = gen_tuple(np.asarray(W), B_pos, S, batch, args)
             F = np.concatenate(F)
             mF = torch.from_numpy(np.concatenate([[[0] * F.shape[-1]], F])).to(device)
             gT = normalization(mF, args)

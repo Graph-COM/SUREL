@@ -40,7 +40,7 @@ def eval_model(model, x_dict, x_set, args, evaluator, device, mode='test', retur
             for batch in gen_batch(target, args.batch_num, keep=True):
                 Bs = torch.unique(batch).numpy()
                 S, K, F = zip(*itemgetter(*Bs)(x_dict))
-                S = torch.tensor(S, dtype=torch.long)
+                S = torch.from_numpy(np.asarray(S)).long()
                 F = np.concatenate(F)
                 F = np.concatenate([[[0] * F.shape[-1]], F])
                 mF = torch.from_numpy(F).to(device)
@@ -88,7 +88,7 @@ def eval_model_horder(model, x_dict, x_set, args, evaluator, device, mode='test'
             for batch in gen_batch(target, args.batch_num, keep=True):
                 Bs = torch.unique(batch).numpy()
                 S, K, F = zip(*itemgetter(*Bs)(x_dict))
-                S = torch.tensor(S, dtype=torch.long)
+                S = torch.from_numpy(np.asarray(S)).long()
                 F = np.concatenate(F)
                 F = np.concatenate([[[0] * F.shape[-1]], F])
                 mF = torch.from_numpy(F).to(device)

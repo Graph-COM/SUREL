@@ -81,7 +81,7 @@ if __name__ == '__main__':
     except:
         parser.print_help()
         sys.exit(0)
-        
+
     set_random_seed(args)
 
     # customized for each dataset
@@ -125,8 +125,8 @@ if __name__ == '__main__':
     model = Net(num_layers=args.layers, input_dim=args.num_step, hidden_dim=args.hidden_dim, out_dim=1,
                 num_walk=args.num_walk, x_dim=args.x_dim, dropout=args.dropout, use_feature=args.use_feature,
                 use_weight=args.use_weight, use_degree=args.use_degree, use_htype=args.use_htype)
-    model.to(device) 
-    
+    model.to(device)
+
     logger.info(f'#Model Params {sum(p.numel() for p in model.parameters())}')
 
     if args.optim == 'adam':
@@ -180,7 +180,7 @@ if __name__ == '__main__':
             S, K, F = zip(*itemgetter(*B_pos)(rw_dict))
             B_pos_edge, _ = subgraph(list(B_pos), T_edge_idx)
             B_full_edge, _ = subgraph(list(B_pos), F_edge_idx)
-            data = gen_sample(S, B_pos, K, B_pos_edge, B_full_edge, inf_set['X'], args, gtype=g_class.gtype)
+            data = gen_sample(np.asarray(S), B_pos, K, B_pos_edge, B_full_edge, inf_set['X'], args, gtype=g_class.gtype)
             F = np.concatenate(F)
             mF = torch.from_numpy(np.concatenate([[[0] * F.shape[-1]], F])).to(device)
             gT = normalization(mF, args)

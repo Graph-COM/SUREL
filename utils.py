@@ -69,7 +69,7 @@ def gen_sample(S, Tx, K, pos_edges, full_edges, x_embed, args, gtype='Homogeneou
     # for hetero graph
     if gtype != 'Homogeneous':
         Tx = sorted(Tx)
-    Ws = torch.tensor(S, dtype=torch.long)
+    Ws = torch.from_numpy(S).long()
     xm, ym, base, mB = coarse(Tx, K)
     xr = torch.tensor(Tx, dtype=torch.long)
 
@@ -86,7 +86,7 @@ def gen_sample(S, Tx, K, pos_edges, full_edges, x_embed, args, gtype='Homogeneou
     #     mA[:pivot, :pivot] = 1
     #     mA[pivot:, pivot:] = 1
     perm = torch.arange(num_nodes * num_nodes)[~ (mA.view(-1) > 0)]
-    neg_pair = torch.vstack([perm // num_nodes, perm % num_nodes]).t()
+    neg_pair = torch.vstack([torch.div(perm, num_nodes, rounding_mode='floor'), perm % num_nodes]).t()
     perms = sample(len(neg_pair), args.k * num_nodes)
     neg_edges = neg_pair[perms].t()
 
@@ -119,7 +119,7 @@ def gen_sample(S, Tx, K, pos_edges, full_edges, x_embed, args, gtype='Homogeneou
 def gen_tuple(W, Tx, S, pos_tuple, args):
     unit_size = args.num_step * args.num_walk
     num_pos = len(pos_tuple)
-    Ws = torch.tensor(W, dtype=torch.long)
+    Ws = torch.from_numpy(W).long()
     xm, ym, base, mB = coarse(Tx, S)
 
     # do trivial random sampling

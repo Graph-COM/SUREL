@@ -167,7 +167,7 @@ if __name__ == '__main__':
             S, K, F = zip(*itemgetter(*B_pos)(rw_dict))
             B_pos_edge, _ = subgraph(list(B_pos), T_edge_idx)
             B_full_edge, _ = subgraph(list(B_pos), F_edge_idx)
-            data = gen_sample(S, B_pos, K, B_pos_edge, B_full_edge, inf_set['X'], args, gtype=g_class.gtype)
+            data = gen_sample(np.asarray(S), B_pos, K, B_pos_edge, B_full_edge, inf_set['X'], args, gtype=g_class.gtype)
             F = np.concatenate(F)
             mF = torch.from_numpy(np.concatenate([[[0] * F.shape[-1]], F])).to(device)
             gT = normalization(mF, args)
