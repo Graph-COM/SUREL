@@ -1,25 +1,24 @@
 <h1 align="center">SUREL: <ins>Su</ins>bgraph-based Graph <ins>Re</ins>presentation <ins>L</ins>earning Framework</h1>
 <p align="center">
-    <a href="https://www.vldb.org/pvldb/vol15/p2788-yin.pdf"><img src="https://img.shields.io/badge/-Paper-grey?logo=read%20the%20docs&logoColor=green" alt="Paper"></a>
+    <a href="https://www.vldb.org/pvldb/vol15/p2788-yin.pdf"><img src="https://img.shields.io/badge/arXiv-2202.13538-b31b1b.svg"></a>
     <a href="https://github.com/Graph-COM/SUREL"><img src="https://img.shields.io/badge/-Github-grey?logo=github" alt="Github"></a>
     <a href="https://github.com/Graph-COM/SUREL/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-BSD%202--Clause-red.svg"></a>
     <a href="https://ogb.stanford.edu/docs/leader_linkprop/"><img src="https://img.shields.io/badge/OGB-LinkPred-blue" alt="OGBL"></a>
     <a href="https://github.com/Graph-COM/SUREL/tree/main/subg_acc"><img src="https://img.shields.io/badge/SubGAcc-v1.1-orange" alt="Version"></a>
-    <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FGraph-COM%2FSUREL&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Hits&edge_flat=false"/></a>
 </p>
 
 SUREL is a novel walk-based computation framework for efficient large-scale subgraph-base graph representation learning (SGRL). Details on how SUREL works can be found in our VLDB'22 paper [Algorithm and System Co-design for Efficient Subgraph-based Graph Representation Learning](https://arxiv.org/pdf/2202.13538.pdf).
 
 Currently, we support:
-- Large-scale graph ML tasks: link prediction / relation type prediction / higher-order pattern prediction
+- Large-scale graph ML tasks: link prediction / relation-type prediction / higher-order pattern prediction
 - Preprocessing and training of datasets in OGB format
-- Python API for user defined subgraph sampling and joining procedures
+- Python API ([SubG Library](https://github.com/VeritasYin/subg_acc)) for subgraph sampling and joining procedures
 - Single GPU training and evaluation
 - Structural (Relative Position) Encoding + Node Features
+- [VesselGraph](https://paperswithcode.com/dataset/vesselgraph) Dataset
 
 We are working on expanding the functionality of SUREL to include:
 - Multi-GPU training
-- BrainVessel Dataset
 
 ## Requirements ##
 (Other versions may work, but are untested)
@@ -27,6 +26,10 @@ We are working on expanding the functionality of SUREL to include:
 * CUDA >= 10.2
 * python >= 3.8
 * 1.8 <= pytorch <= 1.12
+
+## Datasets
+
+SGRL datasets (`mag-write (P-A)`, `mag-cite (P-P)`, `tags-math`, `DBLP-coauthor`) for relation and higher-order prediction can be accessed via [Zenodo](https://zenodo.org/records/15186012). 
 
 ## SGRL Environment Setup ##
 
