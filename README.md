@@ -45,7 +45,7 @@ conda update -n base -c defaults conda
 conda env create -f environment.yml
 conda activate sgrl-env
 ```
-- Update: **SUREL** now support PyTorch 1.12.1 and PyG 2.2.0. To install them, simply run
+- **SUREL** now support PyTorch 1.12.1 and PyG 2.2.0. To install them, simply run
 ```bash
 conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch
 conda install pyg -c pyg
@@ -69,7 +69,7 @@ pip install torch-geometric==1.6.3
 
 2. Clone the repository `git clone https://github.com/Graph-COM/SUREL`
 
-3. Build and install the [SubGAcc](https://github.com/VeritasYin/subg_acc) library `cd subg_acc;python3 setup.py install`
+3. Build and install the [SubG](https://github.com/Graph-COM/SUREL/tree/main/subg_acc) library (v1.1) `cd subg_acc;python3 setup.py install`
 
 - To train **SUREL** for link prediction on Collab:
 ```bash
